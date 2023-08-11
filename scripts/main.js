@@ -4,3 +4,14 @@ fetch("https://randomfox.ca/floof")
     const foxImgElement = document.querySelector("#fox");
     foxImgElement.src = convertedData.image;
   });
+
+const getTheCat = async () => {
+  const response = await fetch(
+    "http://shibe.online/api/cats?count=1&urls=true&httpsUrls=false"
+  );
+  const convertedData = await response.json();
+  const catImgElement = document.querySelector("#cat");
+  catImgElement.src = convertedData[0];
+};
+
+getTheCat();
